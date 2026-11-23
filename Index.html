@@ -1,23 +1,187 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Agenda de Tareas</title>
+
+    <meta name="theme-color" content="#101116">
+    <meta name="description" content="Taskly: organiza tus tareas, establece prioridades y alcanza tus metas.">
+
+    <title>Taskly - Organiza tu día</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Mi agenda de tareas </h1>
-    <p> organiza tus dias, cumple tus metas </p>
-    <button id="mi-boton">crear mi primera tarea</button>
-    <h2>Nueva tarea</h2>
 
-<input type="text" id="titulo-tarea" placeholder="Ej. Estudiar JavaScript">
+    <div class="app-container">
 
-<button id="guardar-tarea">Guardar tarea</button>
+        <!-- ENCABEZADO -->
+        <header class="app-header">
 
-<ul id="lista-tareas"></ul>
+            <div class="brand">
+                <div class="brand-icon">T</div>
+
+                <div class="brand-info">
+                    <h1>Taskly</h1>
+                    <p>Organiza tu día, alcanza tus metas.</p>
+                </div>
+            </div>
+
+            <button id="mi-boton" type="button">
+                + Crear tarea
+            </button>
+
+        </header>
+
+        <main class="app-main">
+
+            <!-- ESTADÍSTICAS -->
+            <section class="stats-section">
+
+                <div class="stat-card">
+                    <span>Total de tareas</span>
+                    <strong id="total-tareas">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Completadas</span>
+                    <strong id="tareas-completadas">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Pendientes</span>
+                    <strong id="tareas-pendientes">0</strong>
+                </div>
+
+            </section>
+
+            <!-- PROGRESO -->
+            <section class="progress-section">
+
+                <div class="progress-header">
+                    <h3>Tu progreso</h3>
+                    <span id="porcentaje-progreso">0%</span>
+                </div>
+
+                <div
+                    class="progress-track"
+                    role="progressbar"
+                    aria-label="Progreso de tareas completadas"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    id="contenedor-progreso"
+                >
+                    <div id="barra-progreso"></div>
+                </div>
+
+            </section>
+
+            <!-- FORMULARIO -->
+            <section class="task-form">
+
+                <div class="section-heading">
+                    <h2>Nueva tarea</h2>
+                    <p>¿Qué tienes pendiente por hacer?</p>
+                </div>
+
+                <div class="input-container">
+
+                    <input
+                        type="text"
+                        id="titulo-tarea"
+                        placeholder="Ej. Estudiar JavaScript"
+                        maxlength="100"
+                        aria-label="Nombre de la tarea"
+                        autocomplete="off"
+                    >
+
+                    <select
+                        id="prioridad-tarea"
+                        aria-label="Seleccionar prioridad"
+                    >
+                        <option value="alta">Prioridad alta</option>
+                        <option value="media" selected>Prioridad media</option>
+                        <option value="baja">Prioridad baja</option>
+                    </select>
+
+                    <button id="guardar-tarea" type="button">
+                        Agregar tarea
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- LISTA DE TAREAS -->
+            <section class="tasks-section">
+
+                <div class="section-heading">
+                    <h2>Mis tareas</h2>
+                    <p>Administra tus actividades.</p>
+                </div>
+
+                <!-- BUSCADOR -->
+                <div class="search-container">
+
+                    <span class="search-icon" aria-hidden="true">⌕</span>
+
+                    <input
+                        type="search"
+                        id="buscar-tarea"
+                        placeholder="Buscar tareas..."
+                        aria-label="Buscar tareas"
+                    >
+
+                </div>
+
+                <!-- FILTROS -->
+                <div class="filters-container">
+
+                    <button
+                        class="filter-btn activo"
+                        data-filter="todas"
+                        type="button"
+                    >
+                        Todas
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="pendientes"
+                        type="button"
+                    >
+                        Pendientes
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="completadas"
+                        type="button"
+                    >
+                        Completadas
+                    </button>
+
+                </div>
+
+                <!-- TAREAS GENERADAS POR JAVASCRIPT -->
+                <ul id="lista-tareas"></ul>
+
+            </section>
+
+        </main>
+
+        <!-- PIE DE PÁGINA -->
+        <footer class="app-footer">
+            <p>Taskly © 2026 - Organiza. Enfócate. Avanza.</p>
+        </footer>
+
+    </div>
+
     <script src="script.js"></script>
+
 </body>
 </html>
